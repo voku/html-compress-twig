@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.1] - 2017-03-18
+### Changed
+- use dependency injection
+
+
 ## [1.0.0] - 2017-03-18
 ### Changed
 - init (fork from https://github.com/nochso/html-compress-twig/)

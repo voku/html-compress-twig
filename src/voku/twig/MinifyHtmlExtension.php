@@ -45,7 +45,7 @@ class MinifyHtmlExtension extends \Twig_Extension
   public function __construct(HtmlMin $htmlMin, $forceCompression = false)
   {
     $this->forceCompression = $forceCompression;
-    $this->minifier = new HtmlMin();
+    $this->minifier = $htmlMin;
     $this->callable = array($this, 'compress');
   }
 
