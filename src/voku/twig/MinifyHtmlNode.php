@@ -35,7 +35,7 @@ class MinifyHtmlNode extends Twig_Node
         ->addDebugInfo($this)
         ->write("ob_start();\n")
         ->subcompile($this->getNode('body'))
-        ->write('$extension = $this->env->getExtension(\\voku\\twig\\MinifyHtmlExtension::class);' . "\n")
+        ->write('$extension = $this->env->getExtension(\'\\voku\\twig\\MinifyHtmlExtension\');' . "\n")
         ->write('echo $extension->compress($this->env, ob_get_clean());' . "\n");
   }
 }
