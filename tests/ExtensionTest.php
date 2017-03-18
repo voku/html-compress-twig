@@ -16,19 +16,19 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
     $original = '<html> <p> x  x </p> </html>';
     $compressed = '<html><p>x x</p></html>';
 
-    $testData = [];
-    $testMethods = [
+    $testData = array();
+    $testMethods = array(
         'Twig tag'      => '{% htmlcompress %}%s{% endhtmlcompress %}',
         'Twig function' => "{{ htmlcompress('%s') }}",
         'Twig filter'   => "{{ '%s' | htmlcompress }}",
-    ];
+    );
 
     foreach ($testMethods as $testMethod => $testTemplate) {
-      $testData[$testMethod] = [
+      $testData[$testMethod] = array(
           str_replace('%s', $original, $testTemplate),
           $original,
           $compressed,
-      ];
+      );
     }
 
     return $testData;
