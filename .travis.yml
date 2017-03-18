@@ -1,26 +1,42 @@
-sudo: false
 language: php
+
+sudo: false
+
 php:
-  - 5.6
-  - 7.0
-  - 7.1
-before_install:
-  - phpenv config-rm xdebug.ini
-install:
-  - composer install --no-interaction --prefer-dist -o
+  - hhvm
+  - nightly
+
+git:
+  depth: 2
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
   include:
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
     - php: 5.6
-      env: dependencies=lowest
-    - php: 7
-      env: dependencies=lowest
-    - php: 5.6
-      env: dependencies=highest
-    - php: 7
-      env: dependencies=highest
+    - php: 7.0
+    - php: 7.1
+
 before_script:
-  - if [ -z "$dependencies" ]; then composer install --prefer-dist; fi;
-  - if [ "$dependencies" = "lowest" ]; then composer update --prefer-dist --prefer-lowest -n; fi;
-  - if [ "$dependencies" = "highest" ]; then composer update --prefer-dist -n; fi;
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - travis_retry composer self-update
+  - travis_retry composer require satooshi/php-coveralls:1.0.0
+  - travis_retry composer install --prefer-dist --no-interaction
+  - composer dump-autoload -o
+
 script:
-  - php vendor/bin/phpunit
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml
+
+after_script:
+  - php vendor/bin/coveralls -v
+  - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+  - bash <(curl -s https://codecov.io/bash)
