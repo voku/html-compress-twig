@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace voku\twig;
 
 use Twig_Environment;
@@ -16,10 +18,10 @@ class MinifyHtmlExtension extends \Twig_Extension
   /**
    * @var array
    */
-  private $options = array(
-      'is_safe'           => array('html'),
+  private $options = [
+      'is_safe'           => ['html'],
       'needs_environment' => true,
-  );
+  ];
 
   /**
    * @var callable
@@ -42,11 +44,11 @@ class MinifyHtmlExtension extends \Twig_Extension
    * @param HtmlMin $htmlMin
    * @param bool    $forceCompression Default: false. Forces compression regardless of Twig's debug setting.
    */
-  public function __construct(HtmlMin $htmlMin, $forceCompression = false)
+  public function __construct(HtmlMin $htmlMin, bool $forceCompression = false)
   {
     $this->forceCompression = $forceCompression;
     $this->minifier = $htmlMin;
-    $this->callable = array($this, 'compress');
+    $this->callable = [$this, 'compress'];
   }
 
   /**
@@ -68,26 +70,26 @@ class MinifyHtmlExtension extends \Twig_Extension
   /**
    * @return array
    */
-  public function getFilters()
+  public function getFilters(): array
   {
-    return array(
+    return [
         new \Twig_SimpleFilter('htmlcompress', $this->callable, $this->options),
-    );
+    ];
   }
 
   /** @noinspection PhpMissingParentCallCommonInspection */
-  public function getFunctions()
+  public function getFunctions(): array
   {
-    return array(
+    return [
         new \Twig_SimpleFunction('htmlcompress', $this->callable, $this->options),
-    );
+    ];
   }
 
   /** @noinspection PhpMissingParentCallCommonInspection */
-  public function getTokenParsers()
+  public function getTokenParsers(): array
   {
-    return array(
+    return [
         new MinifyHtmlTokenParser(),
-    );
+    ];
   }
 }

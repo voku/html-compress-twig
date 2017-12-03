@@ -6,7 +6,7 @@ use voku\twig\MinifyHtmlExtension;
 /**
  * Class ExtensionTest
  */
-class ExtensionTest extends \PHPUnit_Framework_TestCase
+class ExtensionTest extends \PHPUnit\Framework\TestCase
 {
   /**
    * @return array
@@ -14,7 +14,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
   public function htmlProvider()
   {
     $original = '<html> <p> x  x </p> </html>';
-    $compressed = '<html><p>x x</p></html>';
+    $compressed = '<html><p> x x';
 
     $testData = array();
     $testMethods = array(
@@ -47,7 +47,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
     $twig = new \Twig_Environment($loader);
     $minifier = new HtmlMin();
     $twig->addExtension(new MinifyHtmlExtension($minifier));
-    $this->assertEquals($compressed, $twig->render('test'));
+    self::assertEquals($compressed, $twig->render('test'));
   }
 
   /**
@@ -65,7 +65,7 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
     $twig->addExtension(new MinifyHtmlExtension($minifier, true));
 
     // Assert that compression took place
-    $this->assertEquals($compressed, $twig->render('test'));
+    self::assertEquals($compressed, $twig->render('test'));
   }
 
   /**
@@ -83,6 +83,6 @@ class ExtensionTest extends \PHPUnit_Framework_TestCase
     $twig->addExtension(new MinifyHtmlExtension($minifier));
 
     // Assert no compression took place
-    $this->assertEquals($original, $twig->render('test'));
+    self::assertEquals($original, $twig->render('test'));
   }
 }

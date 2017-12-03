@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace voku\twig;
 
 use Twig_Token;
@@ -18,13 +20,13 @@ class MinifyHtmlTokenParser extends Twig_TokenParser
    *
    * @return bool
    */
-  public function decideHtmlCompressEnd(Twig_Token $token)
+  public function decideHtmlCompressEnd(Twig_Token $token): bool
   {
     return $token->test('endhtmlcompress');
   }
 
   /** @noinspection PhpMissingParentCallCommonInspection */
-  public function getTag()
+  public function getTag(): string
   {
     return 'htmlcompress';
   }
@@ -34,15 +36,15 @@ class MinifyHtmlTokenParser extends Twig_TokenParser
    *
    * @return MinifyHtmlNode
    */
-  public function parse(Twig_Token $token)
+  public function parse(Twig_Token $token): MinifyHtmlNode
   {
     $lineNumber = $token->getLine();
     $stream = $this->parser->getStream();
     $stream->expect(Twig_Token::BLOCK_END_TYPE);
-    $body = $this->parser->subparse(array($this, 'decideHtmlCompressEnd'), true);
+    $body = $this->parser->subparse([$this, 'decideHtmlCompressEnd'], true);
     $stream->expect(Twig_Token::BLOCK_END_TYPE);
-    $nodes = array('body' => $body);
+    $nodes = ['body' => $body];
 
-    return new MinifyHtmlNode($nodes, array(), $lineNumber, $this->getTag());
+    return new MinifyHtmlNode($nodes, [], $lineNumber, $this->getTag());
   }
 }

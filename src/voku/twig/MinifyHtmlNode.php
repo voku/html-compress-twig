@@ -20,7 +20,7 @@ class MinifyHtmlNode extends Twig_Node
    * @param int   $lineno
    * @param null  $tag
    */
-  public function __construct(array $nodes = array(), array $attributes = array(), $lineno = 0, $tag = null)
+  public function __construct(array $nodes = [], array $attributes = [], $lineno = 0, $tag = null)
   {
     parent::__construct($nodes, $attributes, $lineno, $tag);
   }
