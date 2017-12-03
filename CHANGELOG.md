@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.0.0] - 2017-12-03
+### Changed
+- drop support for PHP < 7.0
+- use "strict_types"
+
 ## [1.0.2] - 2017-03-18
 ### Changed
 - remove tests-directory ".gitattributes" when installing via composer
