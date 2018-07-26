@@ -59,6 +59,8 @@ Specifying HtmlMin is needed for the autowiring.
             - { name: HtmlMin }
 
     voku\twig\MinifyHtmlExtension:
+        arguments:
+            $forceCompression: false
         tags:
             - { name: twig.extension }
 ```
