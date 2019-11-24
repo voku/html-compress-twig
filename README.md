@@ -50,6 +50,21 @@ $minifier = new HtmlMin();
 $twig->addExtension(new MinifyHtmlExtension($minifier));
 ```
 
+### Register extension in symfony 4
+Specifying HtmlMin is needed for the autowiring.
+
+```yaml
+    voku\helper\HtmlMin:
+        tags:
+            - { name: HtmlMin }
+
+    voku\twig\MinifyHtmlExtension:
+        arguments:
+            $forceCompression: false
+        tags:
+            - { name: twig.extension }
+```
+
 Then use it in your templates:
 
 ```
