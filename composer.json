@@ -1,5 +1,6 @@
 {
   "name": "voku/html-compress-twig",
+  "type": "library",
   "description": "Twig extension for compressing HTML",
   "keywords": [
     "html",
@@ -8,7 +9,6 @@
     "extension",
     "minify"
   ],
-  "type": "library",
   "license": "ISC",
   "authors": [
     {
@@ -20,17 +20,18 @@
       "homepage": "http://www.moelleken.org/"
     }
   ],
+  "require": {
+    "php": ">=7.0.0",
+    "twig/twig": "^1.26 || ~2.0",
+    "voku/html-min": "~4.0",
+    "voku/simple-cache": "~4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~6.0 || ~7."
+  },
   "autoload": {
     "psr-4": {
       "voku\\": "src/voku/"
     }
-  },
-  "require": {
-    "php": ">=7.0.0",
-    "voku/html-min": "~3.0",
-    "twig/twig": "^1.26|~2.0"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "~6.0"
   }
 }
