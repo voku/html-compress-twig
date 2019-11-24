@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [4.0.0] - 2019-11-24
+### Changed
+- update "HtmlMin" from v3 -> v4
+### Added
+- use caching for compressed results
+
 ## [3.0.0] - 2017-12-23
 ### Changed
 - update "HtmlMin" from v2 -> v3
