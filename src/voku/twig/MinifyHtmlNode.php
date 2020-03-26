@@ -5,12 +5,6 @@ namespace voku\twig;
 use Twig\Compiler;
 use Twig\Node\Node;
 
-/**
- * Class MinifyHtmlNode
- *
- * @copyright Copyright (c) 2015 Marcel Voigt <mv@noch.so>
- * @copyright Copyright (c) 2017 Lars Moelleken <lars@moelleken.org>
- */
 class MinifyHtmlNode extends Node
 {
     /**

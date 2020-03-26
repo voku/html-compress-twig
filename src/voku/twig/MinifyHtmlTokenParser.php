@@ -7,12 +7,6 @@ namespace voku\twig;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
-/**
- * Class MinifyHtmlTokenParser
- *
- * @copyright Copyright (c) 2015 Marcel Voigt <mv@noch.so>
- * @copyright Copyright (c) 2017 Lars Moelleken <lars@moelleken.org>
- */
 class MinifyHtmlTokenParser extends AbstractTokenParser
 {
     /**

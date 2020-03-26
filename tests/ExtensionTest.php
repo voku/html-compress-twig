@@ -7,8 +7,6 @@ use voku\helper\HtmlMin;
 use voku\twig\MinifyHtmlExtension;
 
 /**
- * Class ExtensionTest
- *
  * @internal
  */
 final class ExtensionTest extends TestCase

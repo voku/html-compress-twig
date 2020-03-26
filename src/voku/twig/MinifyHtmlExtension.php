@@ -11,12 +11,6 @@ use Twig\TwigFunction;
 use voku\cache\Cache;
 use voku\helper\HtmlMin;
 
-/**
- * Class MinifyHtmlExtension
- *
- * @copyright Copyright (c) 2015 Marcel Voigt <mv@noch.so>
- * @copyright Copyright (c) 2017 Lars Moelleken <lars@moelleken.org>
- */
 class MinifyHtmlExtension extends AbstractExtension
 {
     /**
