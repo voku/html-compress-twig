@@ -45,7 +45,7 @@ First register the extension with Twig:
 use voku\helper\HtmlMin;
 use voku\twig\MinifyHtmlExtension;
 
-$twig = new Twig_Environment($loader);
+$twig = new \Twig\Environment($loader);
 $minifier = new HtmlMin();
 $twig->addExtension(new MinifyHtmlExtension($minifier));
 ```
