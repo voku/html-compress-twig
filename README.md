@@ -8,7 +8,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/voku/html-compress-twig/v/unstable)](https://packagist.org/packages/voku/html-compress-twig)
 [![License](https://poser.pugx.org/voku/html-compress-twig/license)](https://packagist.org/packages/voku/html-compress-twig)
 
-# HTML Compressor and Minifier for Twig
+# :clamp: HtmlMin for Twig: HTML Compressor and Minifier
 
 ## Description
 
