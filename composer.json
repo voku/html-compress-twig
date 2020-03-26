@@ -22,8 +22,8 @@
   ],
   "require": {
     "php": ">=7.0.0",
-    "twig/twig": "^1.26 || ~2.0",
-    "voku/html-min": "~4.0",
+    "twig/twig": "~2.7",
+    "voku/html-min": "~4.3",
     "voku/simple-cache": "~4.0"
   },
   "require-dev": {
