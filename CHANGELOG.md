@@ -4,11 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [4.0.2] - 2021-01-05
+### Added
+- add support for Twig 3.*
+
+
 ## [4.0.1] - 2020-03-26
 ### Changed
 - removed support for Twig 1.*
 ### Added
-- add support for Twig 3.*
+- add support for Twig 2.*
 
 
 ## [4.0.0] - 2019-11-24
