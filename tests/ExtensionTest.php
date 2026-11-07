@@ -14,7 +14,7 @@ final class ExtensionTest extends TestCase
     /**
      * @return array
      */
-    public function htmlProvider()
+    public static function htmlProvider()
     {
         $original = '<html> <p> x  x </p> </html>';
         $compressed = '<html><p> x x';
@@ -44,6 +44,7 @@ final class ExtensionTest extends TestCase
      * @param $original
      * @param $compressed
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('htmlProvider')]
     public function testExtensionMethod($template, $original, $compressed)
     {
         $loader = new Twig\Loader\ArrayLoader(['test' => $template]);
@@ -60,6 +61,7 @@ final class ExtensionTest extends TestCase
      * @param $original
      * @param $compressed
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('htmlProvider')]
     public function testForceCompressionWhenDebug($template, $original, $compressed)
     {
         $loader = new ArrayLoader(['test' => $template]);
@@ -78,6 +80,7 @@ final class ExtensionTest extends TestCase
      * @param $original
      * @param $compressed
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('htmlProvider')]
     public function testNoCompressionWhenDebug($template, $original, $compressed)
     {
         $loader = new ArrayLoader(['test' => $template]);
